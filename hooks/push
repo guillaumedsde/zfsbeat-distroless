@@ -1,0 +1,6 @@
+#!/bin/bash
+
+ZFSBEAT_VERSION=$(curl --silent "https://api.github.com/repos/maireanu/zfsbeat/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
+
+docker push "$IMAGE_NAME" 
+docker push "$DOCKER_REPO:$ZFSBEAT_VERSION"
